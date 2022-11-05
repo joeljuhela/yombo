@@ -7,6 +7,13 @@ const login = require('../utils/login')
 const router = express.Router()
 
 router.post('/createYombo', async (req, res) => {
+  if (!req.body.password) {
+    res.status(400)
+    res.json({
+      error: 'missing password parameter',
+    })
+    return
+  }
   const user = await models.User.create({
     ...req.body,
     passwordHash: await hashPassword(req.body.password),
