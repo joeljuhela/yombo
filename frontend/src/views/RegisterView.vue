@@ -17,6 +17,7 @@
 
 <script>
 import userService from '@/services/users'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'RegisterView',
@@ -31,14 +32,15 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(["setUser", "setToken"]),
     validatePassword: function () {
       if (this.passwordInput1 === this.passwordInput2) {
         return true
       } else {
         return false
       }
-  },
-  register: async function(e) {
+    },
+    register: async function(e) {
       e.preventDefault()
       if (this.validatePassword()) {
         try {
@@ -46,6 +48,9 @@ export default {
             yomboNick: this.form.username,
             password: this.form.passwordInput1
           })
+          console.log(res.yomboNick, res.accessToken, res.authToken)
+          this.setUser({ username: res.yomboNick, accessToken: res.accessToken })
+          this.setToken(res.authToken)
           this.$router.push({ name:'home', params: {accessToken: res.accessToken } })
         } catch(error) {
           this.errors.push(error)
