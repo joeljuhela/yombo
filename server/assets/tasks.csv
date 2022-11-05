@@ -1,0 +1,18 @@
+category,points,beforeText,tips,successText,failText
+COLLABORATE,50,Grab coffee with a friend,Find the nearest coffee shop and catch up!,"Nice work, hope you had fun!",Another time. 
+COLLABORATE,55,Go on a walk with a friend,Fresh air will do both of you some good.,Way to go! Was the weather any good?,Another time. 
+COLLABORATE,70,Ask a friend to help with a task,"Anything you need help with? It can be as small as deciding on where to get lunch, or something that is weighing on you more.","Asking for help isn't always easy, you can be proud of youself!",It's ok. Remember that everyone needs help sometimes!
+COLLABORATE,55,Grab lunch with a friend,Go have a nice lunch and catch up!,"Nice work, hope you had fun!",Another time. 
+COLLABORATE,45,Help a friend with a task,Offer to help a friend!,Yay!,Another time. 
+COLLABORATE,80,Help a stranger,See someone struggling with a task? Offer to help! ,Good work! ,Another time. 
+CONTACT,30,Call a loved one,"Ask them about their day, or tell them about yours!",Way to go!,Another time. 
+CONTACT,40,Compliment a friend,"For example, you can compliment their style! Focus on things they can affect.",Nice! ,Another time. 
+CONTACT,60,Compliment a stranger,"For example, you can compliment their style! Focus on things they can affect.",Wow!,Another time. 
+CONTACT,65,Small talk with a stranger,"If you're struggling to come up with topics, the weather is always a good choice.",Nice going!,Another time. 
+CONTACT,40,Ask how a loved one is doing,It's good to check in with your loved ones every once in a while.,Good work! Hopefully they were doing well.,Another time. 
+CONTACT,30,Recommend a movie to a friend,Have you watched a good movie lately? Tell a friend!,Hope they like it too!,Another time. 
+CONSIDER,45,What are you grateful for today?,"Think of at least one thing. It can be anything: you can thank yourself for taking out the trash, thankful to have friends and family, or thankful that a deadline for a course was pushed to a later time. ",Good job!,Try again later!
+CONSIDER,40,Take a break from social media,"Social media can be mentally draining, it's good to take a break every once in a while.",Nice going!,Try again later!
+CONSIDER,55,Read 3 pages of a book,Do you have a book that you've been meaning to read? Now's a good time to start!,Nice work!,Another time. 
+CONSIDER,60,Write a journal entry,It can be as short or as long as you want.,Good work.,Another time. 
+CONSIDER,50,Put your phone away for 10 minutes.,Have you been staring at screens the whole day? Time to take a break.,Nice going!,Try again later!
