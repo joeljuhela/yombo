@@ -25,6 +25,24 @@ router.post('/createYombo', async (req, res) => {
   })
 })
 
+router.get('/:accessToken/yomboNick', async (req, res) => {
+  const user = await models.User.findOne({
+    where: {
+      accessToken: req.params.accessToken,
+    },
+  })
+  if (!user) {
+    res.status(404)
+    return res.json({
+      error: 'not found',
+      yomboNick: '',
+    })
+  }
+  res.json({
+    yomboNick: user.yomboNick,
+  })
+})
+
 router.post('/:accessToken/login', async (req, res) => {
   const authToken = await login(req.params.accessToken, req.body.password)
   res.json({
