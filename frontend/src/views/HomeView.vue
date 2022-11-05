@@ -2,20 +2,25 @@
   <div>
     This is the homeView
     {{ $route.params.id }}
+    <TaskButton category="CONTACT" x="80px" y="60px" />
     <div class="centered">
-        <yomboSVG/>
+      <yomboSVG/>
     </div>
+    <TaskButton category="COLLABORATE" x="50px" y="520px" />
+    <TaskButton category="CONSIDER" x="360px" y="490px" />
   </div>
 </template>
 
 <script>
 import yomboSVG from '@/assets/svgs/yombo.vue'
+import TaskButton from '@/components/TaskButton.vue'
 
 export default {
-    name: 'HomeView',
-    components: {
-        yomboSVG
-    }
+  name: 'HomeView',
+  components: {
+    yomboSVG,
+    TaskButton,
+  }
 }
 </script>
 
