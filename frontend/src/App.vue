@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Register</router-link>
+    <router-link to="/register">Register</router-link>
   </nav>
   <router-view/>
 </template>
