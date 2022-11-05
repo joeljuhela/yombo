@@ -2,7 +2,11 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('./sequelize')
 
 /* Define the models */
-class User extends Model {}
+class User extends Model {
+  getPasswordHash() {
+    return this.dataValues.passwordHash
+  }
+}
 User.init({
   yomboNick: {
     type: DataTypes.STRING,
@@ -16,13 +20,13 @@ User.init({
   passwordHash: {
     type: DataTypes.STRING,
     allowNull: false,
+    get() {
+      return undefined
+    },
   },
 }, {
   sequelize,
   modelName: 'User',
-  defaultScope: {
-    attributes: { exclude: ['passwordHash'] },
-  },
 })
 
 class Task extends Model {}
