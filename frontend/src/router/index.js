@@ -9,7 +9,7 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/:id/home',
+    path: '/:accessToken/',
     name: 'home',
     component: HomeView
   }

@@ -40,14 +40,13 @@ export default {
   },
   register: async function(e) {
       e.preventDefault()
-      console.log('register')
       if (this.validatePassword()) {
         try {
-          userService.register({
+          const res = await userService.register({
             yomboNick: this.form.username,
             password: this.form.passwordInput1
           })
-          this.$router.push({ name:'home', params: {'id': 'moro'} })
+          this.$router.push({ name:'home', params: {accessToken: res.accessToken } })
         } catch(error) {
           this.errors.push(error)
         }
