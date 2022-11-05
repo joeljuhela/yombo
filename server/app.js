@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const models = require('./models')
 const app = express()
 
 app.get('/', (req, res) => {
