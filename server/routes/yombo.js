@@ -24,6 +24,7 @@ router.get('/dailyTask', async (req, res) => {
         [Op.lt]: lessPointsThan,
       },
       category,
+      isActive: true,
     },
   })
   if (tasks.length === 0)
@@ -32,10 +33,19 @@ router.get('/dailyTask', async (req, res) => {
 })
 
 router.post('/createSubmission', async (req, res) => {
-  await req.user.createSubmission({
+  const submission = await req.user.createSubmission({
     ...req.body,
   })
   await submission.setTask(req.body.taskId)
+  submission.Task = await submission.getTask()
+  res.json(submission)
+})
+
+router.get('/submissions', async (req, res) => {
+  const submissions = await req.user.getSubmissions({
+    include: [models.Task],
+  })
+  res.json(submissions)
 })
 
 module.exports = router
