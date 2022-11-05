@@ -6,7 +6,7 @@
       <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
     </ul>
     </p>
-    <h1>Welcome {{ this.yomboNick }}! Please log in!</h1>
+    <h1>{{ this.yomboNick }} is missing you! Please login</h1>
     <form action="post" @submit="login">
       <input type="password" v-model="password">
       <input type="submit" value="Login">

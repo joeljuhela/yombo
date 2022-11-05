@@ -13,14 +13,6 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
     path: '/:accessToken/',
     name: 'login',
     component: LoginView,
@@ -37,6 +29,18 @@ const routes = [
         }
       }
     }
+  },
+  {
+    path: '/:accessToken/home',
+    name: 'home',
+    component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/',
+    redirect: '/register'
   },
   {
     path: '/:pathMatch(.*)*',
@@ -57,6 +61,8 @@ router.beforeEach((to, from, next) => {
     console.log(store)
     if (store.getters['isLoggedIn']) {
       next()
+    } else if (to.params.accessToken && to.name !== 'login') {
+      next({name: 'login', params: { accessToken: to.params.accessToken}})
     } else {
       next({ name: 'register' })
     }
