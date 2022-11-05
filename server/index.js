@@ -1,10 +1,15 @@
 const express = require('express')
 const app = require('./app')
+const models = require('./models')
 const config = require('./config')
-const cors = require('cors')
+const logger = require('./utils/logger')
 
 const port = config.port
-app.use(cors())
-app.listen(port, () => {
-  console.log(`YOMBO server listening on port ${port}`)
-})
+;(async () => {
+  logger.log('Syncing database...')
+  await models.sequelize.sync()
+  logger.log('Database synced.')
+  app.listen(port, () => {
+    logger.log(`YOMBO server listening on port ${port}`)
+  })
+})()
