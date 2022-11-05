@@ -22,11 +22,8 @@ const getId = (token) => {
 }
 
 module.exports = async (req, res, next) => {
-  console.log('hit!')
   const token = getToken(req)
-  console.log(token)
   const id = getId(token)
-  console.log(id)
   req.user = await models.User.findOne({
     where: { id },
   })
