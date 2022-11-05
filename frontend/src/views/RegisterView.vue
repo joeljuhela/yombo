@@ -3,14 +3,14 @@
 <p v-if="errors.length">
 <b>Please correct the following error(s):</b>
 <ul>
-    <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+  <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
 </ul>
 </p>
 <form @submit="register" method="post">
-    <input v-model="form.username" placeholder="username" type="text"/>
-    <input v-model="form.passwordInput1" placeholder="password" type="password">
-    <input v-model="form.passwordInput2" placeholder="password (again)" type="password">
-    <input type="submit" value="Register"/>
+  <input v-model="form.username" placeholder="username" type="text"/>
+  <input v-model="form.passwordInput1" placeholder="password" type="password">
+  <input v-model="form.passwordInput2" placeholder="password (again)" type="password">
+  <input type="submit" value="Register"/>
 </form>
 </div>
 </template>
@@ -19,43 +19,43 @@
 import userService from '@/services/users'
 
 export default {
-    name: 'RegisterView',
-    data() {
-        return {
-            form: {
-                username: '',
-                passwordInput1: '',
-                passwordInput2: ''
-            },
-            errors: []
-        }
-    },
-    methods: {
-        validatePassword: function () {
-            if (this.passwordInput1 === this.passwordInput2) {
-                return true
-            } else {
-                return false
-            }
-        },
-        register: async function(e) {
-            e.preventDefault()
-            console.log('register')
-            if (this.validatePassword()) {
-                try {
-                    userService.register({
-                        'yomboNick': this.username,
-                        'password': this.passwordInput1
-                    })
-                    this.$router.push({ name:'home' })
-                } catch(error) {
-                    this.errors.push(error)
-                }
-            } else {
-                this.errors.push('Passwords do not match!')
-            }
-        }
+  name: 'RegisterView',
+  data() {
+    return {
+      form: {
+        username: '',
+        passwordInput1: '',
+        passwordInput2: ''
+      },
+      errors: []
     }
+  },
+  methods: {
+    validatePassword: function () {
+      if (this.passwordInput1 === this.passwordInput2) {
+        return true
+      } else {
+        return false
+      }
+  },
+  register: async function(e) {
+      e.preventDefault()
+      console.log('register')
+      if (this.validatePassword()) {
+        try {
+          userService.register({
+            yomboNick: this.form.username,
+            password: this.form.passwordInput1
+          })
+          this.$router.push({ name:'home', params: {'id': 'moro'} })
+        } catch(error) {
+          this.errors.push(error)
+        }
+      } else {
+        this.errors.push('Passwords do not match!')
+      }
+    }
+  }
 }
 </script>
 
