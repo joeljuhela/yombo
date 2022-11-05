@@ -76,7 +76,7 @@ class Submission extends Model {}
 Submission.init({
   answerText: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 
   // Sequelize creates `createdAt` timestamp automatically
@@ -84,6 +84,7 @@ Submission.init({
   // did the user fail or succeed?
   succeeded: {
     type: DataTypes.BOOLEAN,
+    allowNull: false,
   },
 }, {
   sequelize,

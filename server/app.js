@@ -12,7 +12,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(config.apiBase, accounts)
-app.use(`${config.apiBase}/:accessToken`, getUser, authOr403, yombo)
+app.use(config.apiBase, getUser, authOr403, yombo)
 app.use(errorHandler)
 
 module.exports = app
