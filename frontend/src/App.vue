@@ -12,7 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  max-width: 30rem;
+  max-width: 450px;
+  height: 95vh;
+  max-height: 900px;
   margin: auto;
   background-color: cyan;
   position: relative;
@@ -23,6 +25,8 @@ nav {
   width: 100%;
   height: 50px;
   background-color: #7342FF;  
+  position: absolute;
+  bottom: 0;
 }
 
 nav a {

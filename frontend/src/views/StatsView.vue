@@ -1,0 +1,32 @@
+<template>
+  <h2>
+  {{ this.stats ? `Your stats with ${this.stats.yomboNick}` : 'Loading stats...' }}
+  </h2>
+  <StatisticList v-if="this.stats" :stats=this.stats />
+</template>
+
+<script>
+import yomboService from '../services/yombo.js'
+import StatisticList from '../components/StatisticList.vue'
+export default {
+  name: 'HomeView',
+  components: {
+    StatisticList,
+  },
+  methods: {
+  },
+  data() {
+    return {
+      stats: null,
+    }
+  },
+  async mounted() {
+    const stats = await yomboService.getStatistics()
+    this.stats = stats
+  },
+}
+</script>
+
+<style>
+
+</style>

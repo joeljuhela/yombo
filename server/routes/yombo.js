@@ -93,13 +93,14 @@ router.get('/statistics', async (req, res) => {
     yombocombo++
     comboAtRisk = false
   }
+  statistics.yomboNick = req.user.yomboNick
   statistics.succeededDates = succeededDates
   statistics.totalDays = succeededDates.length
   statistics.yombocombo = yombocombo
   statistics.currentDate = currentDate
   statistics.comboAtRisk = comboAtRisk
   statistics.percentSucceeded =
-    Math.ceil(succeededSubmissions.length / submissions.length * 100)
+    Math.ceil(succeededSubmissions.length / submissions.length * 100) || 100
   statistics.numberOfSucceededTasks = succeededSubmissions.length
   statistics.numberOfAnswerWords =
     submissions.map(s => s.answerText.split(' ')).flat().length
