@@ -13,7 +13,6 @@ const login = async creds => {
 }
 
 const getYomboNick = async accessToken => {
-  console.log(accessToken)
   const response = await axios.get(`${config.apiBase}/yomboNick`, {params: {accessToken}})
   return response.data.yomboNick
 }
