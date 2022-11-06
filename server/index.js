@@ -12,7 +12,11 @@ const port = config.port
   logger.log('Database synced.')
   logger.log('Load possible new tasks from the CSV...')
   const loadedTasks = await loadTasksFromCSV()
+  if (!config.secret) {
+    logger.error('$SECRET is not set!')
+    process.exit(5)
+  }
   app.listen(port, () => {
-    logger.log(`YOMBO server listening on port ${port}`)
+    logger.log(`YOMBO ${config.env} server listening on port ${port}`)
   })
 })()
