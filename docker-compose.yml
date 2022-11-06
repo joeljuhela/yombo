@@ -11,7 +11,7 @@ services:
     build:
       ./frontend
     ports:
-      - "8000:80"
+      - "3075:80"
     restart: unless-stopped
 volumes:
   db:
