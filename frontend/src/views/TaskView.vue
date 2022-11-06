@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="frame">
     <div>
       <h3>{{ task.description }}</h3>
       <p>{{ task.beforeText }}</p>
@@ -61,5 +61,7 @@ export default {
 </script>
 
 <style>
-
+  .frame {
+    margin: 20px;
+  }
 </style>

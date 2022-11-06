@@ -45,7 +45,8 @@ const routes = [
     name: 'task',
     component: TaskView,
     meta: {
-      requiresAuth: true
+      requiresAuth: true,
+      transition: 'fade'
     }
   },
   {

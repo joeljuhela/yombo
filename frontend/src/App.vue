@@ -1,8 +1,5 @@
 <template>
   <router-view/>
-  <nav>
-    <router-link to="/register">Register</router-link>
-  </nav>
 </template>
 
 <style>
@@ -18,6 +15,10 @@
   margin: auto;
   background-color: cyan;
   position: relative;
+}
+
+#app img {
+  max-width: 100vw;
 }
 
 nav {
