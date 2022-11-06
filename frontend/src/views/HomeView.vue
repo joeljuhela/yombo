@@ -1,7 +1,8 @@
 <template>
   <div>
-    This is the homeView
-    {{ $route.params.id }}
+    <div class="upleft">
+      <ComboSVG />
+    </div>
     <TaskButton category="CONTACT" x="80px" y="60px" />
     <div class="centered">
       <yomboSVG/>
@@ -13,18 +14,24 @@
 
 <script>
 import yomboSVG from '@/assets/svgs/yombo.vue'
+import ComboSVG from '@/assets/svgs/combo.vue'
 import TaskButton from '@/components/TaskButton.vue'
 
 export default {
   name: 'HomeView',
   components: {
     yomboSVG,
+    ComboSVG,
     TaskButton,
   }
 }
 </script>
 
 <style>
+    .upleft {
+      text-align: left;
+      padding:30px;
+    }
     .centered {
         margin: 160px auto;
         animation-iteration-count: infinite;
