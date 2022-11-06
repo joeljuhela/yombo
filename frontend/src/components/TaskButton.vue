@@ -23,18 +23,23 @@ export default {
 <style>
 .task-button {
   position: absolute;
-  background-color: red;
   border: none;
   border-radius: 100%;
   width: 3rem;
   height: 3rem;
   top: var(--y);
   left: var(--x);
+  transition: 0.5s;
+}
+
+.task-button:hover {
+  transform: rotate(30deg);
+  transition: 0.5s;
 }
 </style>
 
 <template>
   <div class="task-button" :style="cssProps">
-  <img :src="Collaborate" />
+    <img :src="Collaborate" class="button-svg"/>
   </div>
 </template>

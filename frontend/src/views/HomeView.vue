@@ -3,12 +3,12 @@
     <div class="upleft">
       <ComboSVG />
     </div>
-    <TaskButton category="CONTACT" x="80px" y="60px" />
+    <TaskButton category="CONTACT" x="180px" y="60px" />
     <div class="centered">
       <yomboSVG/>
     </div>
-    <TaskButton category="COLLABORATE" x="50px" y="520px" />
-    <TaskButton category="CONSIDER" x="360px" y="490px" />
+    <TaskButton category="COLLABORATE" x="50px" y="620px" />
+    <TaskButton category="CONSIDER" x="360px" y="590px" />
   </div>
 </template>
 
