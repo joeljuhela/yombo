@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Production setup
+Use the `.env` file to define the public "root url" of the service:
+```bash
+VUE_APP_PUBLIC_URL=https://sampo.website/app/yombo
+```
