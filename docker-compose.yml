@@ -4,6 +4,8 @@ services:
   backend:
     build:
       ./server
+    volumes:
+      - ./server/db/:/yombo_server/db
     restart: unless-stopped
   nginx:
     build:
@@ -11,3 +13,5 @@ services:
     ports:
       - "8000:80"
     restart: unless-stopped
+volumes:
+  db:
