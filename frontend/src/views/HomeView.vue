@@ -2,7 +2,7 @@
   <div>
     <div class="upleft">
       <ComboSVG @click="openStats"/>
-      <p styles="font-weight: bold">{{ yomboCombo }}</p>
+      <p styles="font-weight: bold">{{ displayNumber }}</p>
     </div>
     <TaskButton category="CONTACT" x="180px" y="60px" />
     <div class="centered">
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import yomboService from '@/services/yombo'
 import yomboSVG from '@/assets/svgs/yombo.vue'
 import ComboSVG from '@/assets/svgs/combo.vue'
 import TaskButton from '@/components/TaskButton.vue'
@@ -29,12 +28,29 @@ export default {
   },
   data() {
     return {
-      yomboCombo: null
+      displayNumber: 0,
+      interval: false
     }
   },
-  async mounted() {
-    const statistics = await yomboService.getStatistics()
-    this.yomboCombo = statistics.yombocombo
+  ready () {
+    this.displayNumber = this.number ? this.number : 0;
+  },
+  watch: {
+    number () {
+      clearInterval(this.interval);
+
+      if(this.number == this.displayNumber) {
+        return;
+      }
+
+      this.interval = window.setInterval(() => {
+        if(this.displayNumber != this.number) {
+          var change = (this.number - this.displayNumber) / 10;
+          change = change >= 0 ? Math.ceil(change) : Math.floor(change);
+          this.displayNumber = this.displayNumber + change;
+        }
+      }, 20);
+    }
   },
   methods: {
     openStats: function () {

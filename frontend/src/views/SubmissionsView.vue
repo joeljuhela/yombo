@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Your social muscle exercise log</h2>
+    <button @click="goBack">back</button>
     <div v-if="submissions">
       <div class="submission-card" v-for="submission in submissions" :key="submission.id">
         <h3>{{ submission.Task.beforeText }}</h3>
@@ -30,6 +31,9 @@ export default {
   components: {
   },
   methods: {
+    goBack: function () {
+      this.$router.push({name: 'stats'})
+    }
   },
   data() {
     return {
