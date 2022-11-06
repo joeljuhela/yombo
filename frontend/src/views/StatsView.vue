@@ -4,6 +4,7 @@
       {{ this.stats ? `Your stats with ${this.stats.yomboNick}` : 'Loading stats...' }}
     </h2>
     <StatisticList v-if="this.stats" :stats=this.stats />
+    <button @click="goHome">back</button>
   </div>
 </template>
 
@@ -16,6 +17,9 @@ export default {
     StatisticList,
   },
   methods: {
+    goHome: function() {
+      this.$router.push({name: 'home'})
+    }
   },
   data() {
     return {
