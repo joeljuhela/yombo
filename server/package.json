@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "load-csv": "node utils/loadTasksFromCSV.js",
     "create-data": "node utils/createExampleData.js",
     "drop-database": "node utils/dropDatabase.js",
     "test": "echo \"Error: no test specified\" && exit 1"

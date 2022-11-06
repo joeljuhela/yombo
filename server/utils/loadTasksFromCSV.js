@@ -3,7 +3,7 @@ const { parse } = require('csv-parse/sync')
 const models = require('../models')
 const logger = require('./logger')
 
-;(async () => {
+module.exports = async () => {
   const input = await readFile('./assets/tasks.csv')
 
   const taskData = parse(input, {
@@ -13,8 +13,17 @@ const logger = require('./logger')
 
   await models.sequelize.sync()
 
-  const res = await Promise.all(taskData.map(d => {
-    return models.Task.create(d)
+  const createdTasks = []
+  const allPromises = await Promise.all(taskData.map(async (d) => {
+    const previousTask = await models.Task.findOne({ where: {
+      beforeText: d.beforeText,
+      isActive: true,
+    } })
+    if (!previousTask) {
+      const createdTask = await models.Task.create(d)
+      createdTasks.push(createdTask)
+    }
   }))
-  logger.log(`Loaded ${res.length} Tasks from CSV to database`)
-})()
+  logger.log(`Loaded ${allPromises.length} Tasks from CSV. ${createdTasks.length} of them were new.`)
+  return createdTasks
+}
