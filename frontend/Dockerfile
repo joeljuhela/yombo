@@ -8,7 +8,7 @@ COPY package.json ./
 COPY package-lock.json ./
 
 ENV NODE_ENV=production
-RUN npm install
+RUN npm install --production=false
 COPY . .
 COPY nginx.conf /etc/nginx/
 RUN npm run build
