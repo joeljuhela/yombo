@@ -33,7 +33,7 @@ export default {
       padding:30px;
     }
     .centered {
-        margin: 160px auto;
+        margin: 110px auto;
         animation-iteration-count: infinite;
         animation-name: updown;
         animation-duration: 3s;

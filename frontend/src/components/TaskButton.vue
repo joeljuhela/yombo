@@ -16,6 +16,12 @@ export default {
     return {
       Collaborate: require(`../assets/svgs/Categories/${this.$props.category}.svg`)
     }
+  },
+  methods: {
+    navToTask: function() {
+      const accessToken = this.$store.state.user.accessToken
+      this.$router.push({name: 'task', params: { accessToken, category: this.$props.category }})
+    }
   }
 }
 </script>
@@ -39,7 +45,7 @@ export default {
 </style>
 
 <template>
-  <div class="task-button" :style="cssProps">
+  <div class="task-button" :style="cssProps" @click="navToTask">
     <img :src="Collaborate" class="button-svg"/>
   </div>
 </template>

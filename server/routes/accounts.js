@@ -1,13 +1,11 @@
 const express = require('express')
 const models = require('../models')
-const config = require('../config')
 const hashPassword = require('../utils/hashPassword')
 const login = require('../utils/login')
 
 const router = express.Router()
 
 router.post('/createYombo', async (req, res) => {
-  console.log(req.body)
   if (!req.body.password) {
     res.status(400)
     res.json({

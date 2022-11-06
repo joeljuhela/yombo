@@ -32,8 +32,6 @@ export default {
     ...mapMutations(["setUser", "setToken"]),
     login: async function(e) {
       e.preventDefault()
-      console.log(this.accessToken)
-      console.log('test')
       try {
         const authToken = await userService.login({ accessToken: this.accessToken, password: this.password})
         if (authToken) {
@@ -52,7 +50,6 @@ export default {
     this.accessToken = this.$route.params.accessToken
     const yomboNick = await userService.getYomboNick(this.accessToken)
     this.yomboNick = yomboNick
-    console.log(this)
   }
 }
 </script>

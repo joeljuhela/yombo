@@ -1,8 +1,10 @@
 <template>
-  <h2>
-  {{ this.stats ? `Your stats with ${this.stats.yomboNick}` : 'Loading stats...' }}
-  </h2>
-  <StatisticList v-if="this.stats" :stats=this.stats />
+  <div>
+    <h2>
+      {{ this.stats ? `Your stats with ${this.stats.yomboNick}` : 'Loading stats...' }}
+    </h2>
+    <StatisticList v-if="this.stats" :stats=this.stats />
+  </div>
 </template>
 
 <script>
@@ -28,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+  div {
+    padding-top: 30px;
+  }
 </style>

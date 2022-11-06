@@ -65,7 +65,6 @@ export default {
             yomboNick: this.form.username,
             password: this.form.passwordInput1
           })
-          console.log(res.yomboNick, res.accessToken, res.authToken)
           this.setUser({ username: res.yomboNick, accessToken: res.accessToken })
           this.setToken(res.authToken)
           this.$router.push({ name:'home', params: {accessToken: res.accessToken } })

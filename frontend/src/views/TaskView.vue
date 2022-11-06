@@ -41,7 +41,6 @@ export default {
     easierTask: async function (e) {
       e.preventDefault()
       const task = await taskService.getDailyTask(this.category, this.task.points)
-      console.log(task)
       this.task = task
     },
     submitTask: async function (e) {
@@ -51,7 +50,6 @@ export default {
         true,
         this.answer
       )
-      console.log(res)
       if (res.createdAt) {
         this.$router.push({name: 'home'})
       } else {
