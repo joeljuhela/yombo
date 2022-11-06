@@ -13,4 +13,8 @@ const getStatistics = async () => {
   return res.data
 }
 
-export default { getStatistics }
+const getSubmissions = async () => {
+  return (await axios.get(`${config.apiBase}/submissions`, authHead)).data
+}
+
+export default { getStatistics, getSubmissions }

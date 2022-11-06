@@ -3,6 +3,7 @@ import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
 import TaskView from '../views/TaskView.vue'
 import StatsView from '../views/StatsView.vue'
+import SubmissionsView from '../views/SubmissionsView.vue'
 import store from '@/store'
 import userService from '@/services/users'
 import LoginView from '../views/LoginView.vue'
@@ -53,6 +54,14 @@ const routes = [
     path: '/:accessToken/stats',
     name: 'stats',
     component: StatsView,
+    meta: {
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/:accessToken/submissions',
+    name: 'submissions',
+    component: SubmissionsView,
     meta: {
       requiresAuth: true,
     },
