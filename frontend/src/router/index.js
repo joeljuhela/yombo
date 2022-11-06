@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import RegisterView from '../views/RegisterView.vue'
 import HomeView from '../views/HomeView.vue'
+import TaskView from '../views/TaskView.vue'
 import store from '@/store'
 import userService from '@/services/users'
 import LoginView from '../views/LoginView.vue'
@@ -34,6 +35,14 @@ const routes = [
     path: '/:accessToken/home',
     name: 'home',
     component: HomeView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/:accessToken/task/:category',
+    name: 'task',
+    component: TaskView,
     meta: {
       requiresAuth: true
     }
