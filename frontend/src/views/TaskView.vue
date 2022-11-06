@@ -40,7 +40,14 @@ export default {
     easierTask: async function (e) {
       e.preventDefault()
       const task = await taskService.getDailyTask(this.category, this.task.points)
-      this.task = task
+      if (!task) {
+        this.task= {
+          description: 'No easier task available :(',
+          beforeText: 'Maybe checkout a different category'
+        }
+      } else {
+        this.task = task
+      }
     },
     submitTask: async function (e) {
       e.preventDefault()
