@@ -1,11 +1,8 @@
 <script>
-import CollaborateSVG from '@/assets/svgs/Collaborate.vue'
-
 export default {
   name: 'TaskButton',
   props: ['category', 'x', 'y'],
   components: [
-    CollaborateSVG,
   ],
   computed: {
     cssProps() {
@@ -15,6 +12,11 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      Collaborate: require(`../assets/svgs/Categories/${this.$props.category}.svg`)
+    }
+  }
 }
 </script>
 
@@ -33,6 +35,6 @@ export default {
 
 <template>
   <div class="task-button" :style="cssProps">
-    <CollaborateSVG />
+  <img :src="Collaborate" />
   </div>
 </template>
