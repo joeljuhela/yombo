@@ -13,7 +13,6 @@
   height: 95vh;
   max-height: 900px;
   margin: auto;
-  background-color: cyan;
   position: relative;
 }
 
@@ -25,7 +24,6 @@ nav {
   overflow: hidden;
   width: 100%;
   height: 50px;
-  background-color: #7342FF;  
   position: absolute;
   bottom: 0;
 }

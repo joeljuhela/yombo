@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="upleft">
-      <ComboSVG />
+      <ComboSVG @click="openStats"/>
+      <p styles="font-weight: bold">{{ yomboCombo }}</p>
     </div>
     <TaskButton category="CONTACT" x="180px" y="60px" />
     <div class="centered">
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import yomboService from '@/services/yombo'
 import yomboSVG from '@/assets/svgs/yombo.vue'
 import ComboSVG from '@/assets/svgs/combo.vue'
 import TaskButton from '@/components/TaskButton.vue'
@@ -23,14 +25,31 @@ export default {
     yomboSVG,
     ComboSVG,
     TaskButton,
+  },
+  data() {
+    return {
+      yomboCombo: null
+    }
+  },
+  async mounted() {
+    const statistics = await yomboService.getStatistics()
+    this.yomboCombo = statistics.yombocombo
+  },
+  methods: {
+    openStats: function () {
+      this.$router.push({name: 'stats'})
+    }
   }
 }
 </script>
 
 <style>
     .upleft {
+      display: flex;
       text-align: left;
-      padding:30px;
+      padding: 30px;
+      align-items: center;
+      align-content: center;
     }
     .centered {
         margin: 110px auto;
