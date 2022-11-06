@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  backend:
+    build:
+      ./server
+    restart: unless-stopped
+  nginx:
+    build:
+      ./frontend
+    ports:
+      - "8000:80"
+    restart: unless-stopped
