@@ -5,16 +5,16 @@
       <p>{{ task.beforeText }}</p>
       <form action="post" @submit="submitTask">
         <textarea required v-model="answer" cols="30" rows="10" placeholder="how did this task make you feel?"></textarea>
-        <input type="submit" value="Complete Task">
+        <input type="submit" value="Complete Task" style="margin-top: 10px;">
       </form>
     </div>
-    <button @click="showModal = true">This is too difficult</button>
-    <div class="modal" v-if="showModal">
-      <h2>Do you want a lighter task?</h2>
-      <form action="post" @submit="easierTask">
-        <input type="submit" value="Yes please">
-      </form>
-      <button @click="showModal = false">Cancel</button>
+    <form action="post" @submit="easierTask">
+      <input type="submit" value="This is too difficult for me right now">
+    </form>
+    <div>
+      <button @click="backHome">
+        Back
+      </button>
     </div>
   </div>
 </template>
@@ -26,7 +26,6 @@ export default {
   name: 'TaskView',
   data() {
     return {
-      showModal: false,
       task: Object,
       answer: '',
       category: ''
@@ -55,6 +54,9 @@ export default {
       } else {
         console.log('did not work')
       }
+    },
+    backHome: function() {
+      this.$router.push({name: 'home'})
     }
   }
 }
