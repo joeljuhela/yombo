@@ -5,7 +5,8 @@ export default createStore({
     state() {
         return {
             user: null,
-            token: null
+            token: null,
+            hatIndex: 0
         }
     },
     mutations: {
@@ -14,6 +15,9 @@ export default createStore({
         },
         setToken(state, token) {
             state.token = token
+        },
+        setHatIndex(state) {
+            state.hatIndex = (state.hatIndex + 1) % 5
         }
     },
     getters: {

@@ -39,6 +39,6 @@ nav a.router-link-exact-active {
 
 .body-wrap {
   min-height: 100vh;
-  background: linear-gradient(rgba(115,66,255, 0.6), rgba(255, 36, 220, 0.6))
+  background: linear-gradient(rgba(115,66,255, 0.4), rgba(255, 36, 220, 0.4))
 }
 </style>
